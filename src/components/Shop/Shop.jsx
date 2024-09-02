@@ -31,9 +31,9 @@ function Shop() {
         : [selectedCategory];
 
     return (
-        <div className="flex w-full max-w-screen-2xl flex-col items-center justify-center gap-4 sm:flex-row sm:items-start">
+        <div className="flex w-full max-w-screen-2xl flex-col items-center justify-center sm:flex-row sm:items-start">
             {isLoading ? (
-                <h2 className="-translate-y-16 text-3xl text-white">
+                <h2 className="translate-y-24 text-3xl text-white">
                     Loading...
                 </h2>
             ) : (
@@ -45,7 +45,7 @@ function Shop() {
                                     key={category}
                                     className={`sm: w-full border-b-2 border-gray-600 p-2 text-center text-xl font-medium text-white transition-colors last:border-none hover:bg-gray-900 hover:bg-opacity-30 sm:w-auto sm:text-left ${
                                         selectedCategory === category
-                                            ? "!bg-gray-900"
+                                            ? "!bg-gray-900 !bg-opacity-70"
                                             : ""
                                     }`}
                                     onClick={categoryButtonClickHandler}
@@ -56,7 +56,7 @@ function Shop() {
                             );
                         })}
                     </ul>
-                    <div className="grid-template-cols mx-4 grid gap-8 sm:mr-4 sm:w-5/6">
+                    <div className="grid-template-cols mr-4 grid gap-8 sm:mr-4 sm:w-5/6">
                         {items.map(
                             (item) =>
                                 categoryToDisplay.find(
