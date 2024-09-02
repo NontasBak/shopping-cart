@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { ShoppingCart } from "lucide-react";
 
-function Navbar() {
+function Navbar({ setCartIsOpen }) {
     return (
         <>
             <div className="flex items-center gap-4 bg-black p-6 text-2xl text-white">
@@ -23,7 +23,7 @@ function Navbar() {
                 >
                     Shop
                 </Link>
-                <button className="cursor-pointer rounded-lg p-2 transition-colors hover:bg-slate-200 hover:bg-opacity-10">
+                <button onClick={() => setCartIsOpen(true)} className="cursor-pointer rounded-lg p-2 transition-colors hover:bg-slate-200 hover:bg-opacity-10">
                     <ShoppingCart />
                 </button>
             </div>

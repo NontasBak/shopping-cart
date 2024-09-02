@@ -4,7 +4,7 @@ function ShopItem({ id, title, price, image, rating, setCart, cart }) {
     function addItemToCart(e) {
         if (itemAlreadyInCart) return;
 
-        setCart((prevCart) => [...prevCart, { id, title, price, image }]);
+        setCart((prevCart) => [...prevCart, { id, title, price, image, quantity: 1, totalPrice: price }]);
     }
 
     const itemAlreadyInCart = cart.find((item) => item.id === id);

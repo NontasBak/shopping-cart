@@ -23,7 +23,6 @@ function Shop() {
             setItems(data);
             setCategories([...new Set(data.map((item) => item.category))]);
             setIsLoading(false);
-            console.log(data);
         }
         fetchData();
     }, []);
