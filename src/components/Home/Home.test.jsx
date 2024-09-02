@@ -8,7 +8,7 @@ describe("Home component", () => {
         render(
             <BrowserRouter>
                 <Home />)
-            </BrowserRouter>
+            </BrowserRouter>,
         );
 
         expect(screen.getByRole("heading").textContent).toMatch("Scrootz");
