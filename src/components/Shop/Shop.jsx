@@ -1,3 +1,4 @@
+import { useOutletContext } from "react-router-dom";
 import ShopItem from "../ShopItem/ShopItem";
 import { useEffect, useState } from "react";
 
@@ -6,6 +7,7 @@ function Shop() {
     const [categories, setCategories] = useState(null);
     const [isLoading, setIsLoading] = useState(true);
     const [selectedCategory, setSelectedCategory] = useState(null);
+    const [cart, setCart] = useOutletContext();
     let itemCount = 20;
 
     function categoryButtonClickHandler(e) {
@@ -21,7 +23,7 @@ function Shop() {
             setItems(data);
             setCategories([...new Set(data.map((item) => item.category))]);
             setIsLoading(false);
-            // console.log(data);
+            console.log(data);
         }
         fetchData();
     }, []);
@@ -30,6 +32,7 @@ function Shop() {
         ? categories
         : [selectedCategory];
 
+    console.log(cart);
     return (
         <div className="flex w-full max-w-screen-2xl flex-col items-center justify-center sm:flex-row sm:items-start">
             {isLoading ? (
@@ -56,12 +59,19 @@ function Shop() {
                             );
                         })}
                     </ul>
-                    <div className="grid-template-cols mr-4 grid gap-8 sm:mr-4 sm:w-5/6">
+                    <div className="grid-template-cols mx-4 grid gap-8 sm:mr-4 sm:w-5/6">
                         {items.map(
                             (item) =>
                                 categoryToDisplay.find(
                                     (cat) => cat === item.category,
-                                ) && <ShopItem {...item} key={item.id} />,
+                                ) && (
+                                    <ShopItem
+                                        {...item}
+                                        setCart={setCart}
+                                        cart={cart}
+                                        key={item.id}
+                                    />
+                                ),
                         )}
                     </div>
                 </>
