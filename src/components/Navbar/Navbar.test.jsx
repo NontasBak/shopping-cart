@@ -7,7 +7,7 @@ describe("NavBar component", () => {
     it("Should render Navbar correctly", () => {
         render(
             <BrowserRouter>
-                <NavBar />
+                <NavBar cart={[]}/>
             </BrowserRouter>
         );
 
