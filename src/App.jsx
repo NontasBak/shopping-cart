@@ -14,10 +14,8 @@ function App() {
         <div
             className={`relative flex min-h-screen flex-col ${pathname === "/home" ? "h-screen" : ""} ${cartIsOpen ? "h-screen overflow-hidden" : ""}`}
         >
-            <Navbar setCartIsOpen={setCartIsOpen} />
-            <main
-                className="background-pattern flex h-full flex-auto justify-center"
-            >
+            <Navbar cart={cart} setCartIsOpen={setCartIsOpen} />
+            <main className="background-pattern flex h-full flex-auto justify-center">
                 <Outlet context={[cart, setCart, cartIsOpen]} />
             </main>
             <Cart
