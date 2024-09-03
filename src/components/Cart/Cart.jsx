@@ -50,7 +50,7 @@ function Cart({ cart, setCart, cartIsOpen, setCartIsOpen }) {
                 className={`absolute inset-0 bg-black bg-opacity-50 ${isSlidingOut ? "animate-fadeOut" : "animate-fadeIn"}`}
             ></div>
             <div
-                className={`absolute right-0 top-0 flex h-screen w-1/4 flex-col gap-8 overflow-y-scroll bg-black p-4 ${
+                className={`absolute right-0 top-0 flex h-screen xl:w-1/4 md:w-2/5 w-2/3 flex-col gap-8 overflow-y-scroll bg-black p-4 ${
                     isSlidingOut ? "animate-slideOut" : "animate-slideIn"
                 }`}
             >

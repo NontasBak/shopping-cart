@@ -40,7 +40,7 @@ function Shop() {
     return (
         <div className="flex w-full max-w-screen-2xl flex-col items-center justify-center sm:flex-row sm:items-start">
             {isLoading ? (
-                <h2 className="translate-y-24 text-3xl text-white">
+                <h2 className="-translate-y-44 text-3xl text-white sm:translate-y-24">
                     Loading...
                 </h2>
             ) : (
@@ -61,7 +61,10 @@ function Shop() {
                             );
                         })}
                         {selectedCategory && (
-                            <button onClick={() => setSelectedCategory(null)} className="mt-4 flex items-center justify-center gap-px border-2 border-red-500 p-2 text-white">
+                            <button
+                                onClick={() => setSelectedCategory(null)}
+                                className="mt-4 flex items-center justify-center gap-px border-2 border-red-500 p-2 text-white"
+                            >
                                 <X />
                                 <p className="text-center">
                                     {firstLetterUpperCase(selectedCategory)}
