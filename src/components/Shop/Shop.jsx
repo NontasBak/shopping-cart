@@ -8,7 +8,7 @@ function Shop() {
     const [categories, setCategories] = useState(null);
     const [isLoading, setIsLoading] = useState(true);
     const [selectedCategory, setSelectedCategory] = useState(null);
-    const [cart, setCart] = useOutletContext();
+    const [cart, setCart, cartIsOpen] = useOutletContext();
     let itemCount = 20;
 
     function categoryButtonClickHandler(e) {
@@ -36,13 +36,19 @@ function Shop() {
         return string.charAt(0).toUpperCase() + string.slice(1);
     }
 
-    console.log(cart);
+    console.log(cartIsOpen);
     return (
-        <div className="flex w-full max-w-screen-2xl flex-col items-center justify-center sm:flex-row sm:items-start">
+        <div
+            className={`flex w-full max-w-screen-2xl flex-col sm:flex-row sm:items-start ${
+                cartIsOpen ? "overflow-hidden" : ""
+            }`}
+        >
             {isLoading ? (
-                <h2 className="-translate-y-44 text-3xl text-white sm:translate-y-24">
-                    Loading...
-                </h2>
+                <div className="flex items-center justify-center w-full">
+                    <h2 className="text-3xl text-white translate-y-24">
+                        Loading...
+                    </h2>
+                </div>
             ) : (
                 <>
                     <ul className="flex w-full flex-col p-6 sm:w-auto">

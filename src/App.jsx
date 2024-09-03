@@ -12,13 +12,20 @@ function App() {
 
     return (
         <div
-            className={`flex min-h-screen flex-col relative ${pathname === "/home" ? "h-screen" : ""}`}
+            className={`relative flex min-h-screen flex-col ${pathname === "/home" ? "h-screen" : ""} ${cartIsOpen ? "h-screen overflow-hidden" : ""}`}
         >
             <Navbar setCartIsOpen={setCartIsOpen} />
-            <main className="background-pattern flex h-full flex-auto justify-center">
-                <Outlet context={[cart, setCart]} />
+            <main
+                className="background-pattern flex h-full flex-auto justify-center"
+            >
+                <Outlet context={[cart, setCart, cartIsOpen]} />
             </main>
-            <Cart cartIsOpen={cartIsOpen} setCartIsOpen={setCartIsOpen} cart={cart} setCart={setCart}/>
+            <Cart
+                cartIsOpen={cartIsOpen}
+                setCartIsOpen={setCartIsOpen}
+                cart={cart}
+                setCart={setCart}
+            />
         </div>
     );
 }
